@@ -27,13 +27,23 @@ See [SECURITY.md](SECURITY.md) for the threat model and reporting guidance.
 
 ## Use
 
-For hosts that support `SKILL.md` packages, install this repository as a skill and invoke `$auto-agent`. Keep automatic invocation enabled when the host supports it.
+For hosts that support `SKILL.md` packages, install this repository as a project-local skill and invoke `$auto-agent`. Automatic invocation is intentionally disabled for the initial trial; enable it only after the acceptance checks in [docs/ROLLOUT.md](docs/ROLLOUT.md) pass for that project.
 
 ```text
 Use $auto-agent to choose the safest efficient execution mode for this request.
 ```
 
 Consumer ChatGPT, Claude, and Gemini interfaces may not let a skill change the model or reasoning controls. In those environments Auto Agent is recommendation-only. API orchestrators can implement the mappings in [references/platform-adapters.md](references/platform-adapters.md) after confirming current runtime capabilities.
+
+Project, system, developer, host safety, permission, billing, and repository instructions always override this skill. Auto Agent is never an authority to change a model, enable a tool, access an account, spend money, or loosen a safeguard.
+
+See [installation and rollback](docs/INSTALLATION.md), [compatibility](COMPATIBILITY.md), and [mode examples](examples/modes.md).
+
+## Architecture
+
+The core skill chooses a vendor-neutral ideal route; `settings_action` independently records whether trusted runtime controls can apply it, and `execution_disposition` records a mandatory integration stop signal without weakening the ideal safety profile. A compliant host must enforce that signal before execution; the skill itself is not an execution sandbox. Finite vocabularies and behavioral rules live under `contracts/v1/`. Versioned adapter manifests map that route to verified host controls and fail closed to `recommend_only` when metadata is missing, expired, mismatched, or unsupported. Execution budgets are a separate trusted host/project policy, so routing cannot recursively expand tools, agents, context, spend, permissions, or approvals.
+
+Release evidence is bound to the exact protected files by a deterministic SHA-256 manifest. Three self-attested fresh blind configurations classify every fixture, and the dependency-free validator compares every route field, recomputes exact/permitted/safe-upward/genuine outcomes, and independently rejects any safety-floor violation. The configuration labels are provenance metadata, not cryptographic isolation proof. A generated report reconciles every confusion-matrix cell, outcome, safety rate, and variance count with the normalized evidence. The validator rejects vague per-field wildcards, stale evidence, unsafe variants, cross-product combinations, contradictory reports, and sensitive telemetry.
 
 ## Package
 
@@ -42,7 +52,7 @@ Consumer ChatGPT, Claude, and Gemini interfaces may not let a skill change the m
 - [platform adapters](references/platform-adapters.md) — safe host mappings and fallbacks
 - [decision-record schema](references/decision-record.schema.json) — minimal non-sensitive metadata contract
 - [routing cases](tests/routing-cases.json) — behavioral test matrix
-- [forward-test report](tests/forward-test-report.md) — independent classification results
+- [forward-test report](tests/forward-test-report.md) — multi-configuration, self-attested classification results
 
 ## Validate
 
@@ -54,9 +64,17 @@ python3 scripts/validate.py
 
 The repository workflow runs the same check for pushes and pull requests.
 
-## Important limitation
+Development-only quality checks are documented in [CONTRIBUTING.md](CONTRIBUTING.md). They do not add runtime dependencies or make network requests during skill operation.
+
+## Important limitations
 
 Auto Agent is a routing policy, not an API gateway or billing controller. It cannot guarantee lower cost, faster responses, correctness, model availability, or platform support. Always keep the host platform's safety, permission, and billing controls in force.
+
+It does not retain prompts, account identifiers, personal data, secrets, hidden reasoning, or telemetry. Integrations must preserve that property and should record only the non-sensitive fields allowed by the decision-record schema.
+
+## Releases
+
+Install from an audited, signed release tag and pin the corresponding commit, never from an unreviewed branch. [RELEASING.md](RELEASING.md) describes checksum verification, upgrade, and rollback.
 
 ## License
 

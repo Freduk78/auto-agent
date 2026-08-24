@@ -1,13 +1,17 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/Freduk78/auto-agent/blob/main/references/decision-record.schema.json",
-  "title": "Auto Agent decision record",
+  "x-auto-agent-schema-id": "auto-agent.routing-decision",
+  "x-auto-agent-schema-version": "1.0.0",
+  "title": "Auto Agent routing decision record v1",
   "description": "Ephemeral, non-sensitive routing metadata. Never add prompt text, identifiers, secrets, personal data, proprietary context, encoded task values, or hidden reasoning.",
   "type": "object",
   "additionalProperties": false,
   "required": [
+    "schema_version",
     "mode",
     "reason_codes",
+    "execution_disposition",
     "settings_action",
     "capability_status",
     "cost_status",
@@ -17,6 +21,7 @@
     "context_policy",
     "tool_policy",
     "agent_policy",
+    "specialist_route",
     "verification",
     "response_style",
     "route_confidence",
@@ -24,9 +29,8 @@
     "escalation_count"
   ],
   "properties": {
-    "mode": {
-      "enum": ["fast", "balanced", "deep", "critical", "specialist"]
-    },
+    "schema_version": {"const": "1.0.0"},
+    "mode": {"enum": ["FAST", "BALANCED", "DEEP", "CRITICAL", "SPECIALIST"]},
     "reason_codes": {
       "type": "array",
       "minItems": 1,
@@ -58,39 +62,33 @@
           "material_cost_change",
           "capability_unavailable",
           "stale_adapter",
+          "untrusted_content",
           "reasoning_failure",
           "missing_access",
+          "repeated_failure",
+          "required_dependency_blocked",
           "user_authorized_budget"
         ]
       }
     },
-    "settings_action": {
-      "enum": ["applied", "unchanged", "recommend_only", "approval_required"]
-    },
-    "capability_status": {
-      "enum": ["confirmed", "partial", "unavailable", "unknown"]
-    },
-    "cost_status": {
-      "enum": ["lower", "unchanged", "higher", "unknown"]
-    },
-    "budget_authorization": {
-      "enum": ["not_required", "confirmed", "required", "unknown"]
-    },
-    "reasoning_effort": {
-      "enum": ["current", "minimal", "low", "medium", "high", "highest_supported"]
-    },
-    "latency_preference": {
-      "enum": ["fastest", "normal", "quality_first", "modality_dependent"]
-    },
+    "execution_disposition": {"enum": ["proceed", "stop"]},
+    "settings_action": {"enum": ["applied", "unchanged", "recommend_only", "approval_required"]},
+    "capability_status": {"enum": ["confirmed", "partial", "unknown", "unavailable", "expired", "mismatched"]},
+    "cost_status": {"enum": ["lower", "unchanged", "higher", "unknown"]},
+    "budget_authorization": {"enum": ["not_required", "confirmed", "required", "unknown"]},
+    "reasoning_effort": {"enum": ["current", "minimal", "low", "medium", "high", "maximum"]},
+    "latency_preference": {"enum": ["fastest", "normal", "quality_first", "modality_dependent"]},
     "context_policy": {
-      "enum": ["minimum_sufficient", "relevant_working_set", "broader_dependencies", "complete_safety_evidence", "specialist_minimum"]
+      "enum": [
+        "minimum_sufficient",
+        "relevant_working_set",
+        "broader_dependencies",
+        "complete_safety_evidence",
+        "specialist_minimum"
+      ]
     },
-    "tool_policy": {
-      "enum": ["none", "targeted", "evidence_led", "gated", "specialist"]
-    },
-    "agent_policy": {
-      "enum": ["none", "bounded", "host_confirmed_only"]
-    },
+    "tool_policy": {"enum": ["none", "local_only", "targeted", "evidence_led", "gated", "specialist"]},
+    "agent_policy": {"enum": ["none", "bounded", "host_confirmed_only"]},
     "specialist_route": {
       "description": "Generic controlled modality only; never place task-derived identifiers or content here.",
       "enum": [
@@ -107,23 +105,11 @@
         "other_confirmed"
       ]
     },
-    "verification": {
-      "enum": ["focused", "standard", "deep", "critical", "specialist"]
-    },
-    "response_style": {
-      "enum": ["concise", "proportionate", "detailed", "risk_explicit", "artifact_fit"]
-    },
-    "route_confidence": {
-      "enum": ["low", "medium", "high"]
-    },
-    "approval_required": {
-      "type": "boolean"
-    },
-    "escalation_count": {
-      "type": "integer",
-      "minimum": 0,
-      "maximum": 2
-    }
+    "verification": {"enum": ["focused", "standard", "deep", "critical", "specialist"]},
+    "response_style": {"enum": ["concise", "proportionate", "detailed", "risk_explicit", "artifact_fit"]},
+    "route_confidence": {"enum": ["low", "medium", "high"]},
+    "approval_required": {"type": "boolean"},
+    "escalation_count": {"type": "integer", "minimum": 0, "maximum": 2}
   },
   "allOf": [
     {
@@ -135,6 +121,7 @@
         "properties": {
           "capability_status": {"const": "confirmed"},
           "budget_authorization": {"enum": ["not_required", "confirmed"]},
+          "execution_disposition": {"const": "proceed"},
           "approval_required": {"const": false}
         }
       }
@@ -144,44 +131,44 @@
         "properties": {"settings_action": {"const": "approval_required"}},
         "required": ["settings_action"]
       },
-      "then": {
-        "properties": {"approval_required": {"const": true}}
-      }
+      "then": {"properties": {"approval_required": {"const": true}}}
     },
     {
       "if": {
-        "properties": {"capability_status": {"enum": ["unavailable", "unknown"]}},
+        "properties": {
+          "capability_status": {"enum": ["unknown", "unavailable", "expired", "mismatched"]}
+        },
         "required": ["capability_status"]
       },
       "then": {
-        "properties": {"settings_action": {"enum": ["unchanged", "recommend_only", "approval_required"]}}
+        "properties": {
+          "settings_action": {"enum": ["unchanged", "recommend_only", "approval_required"]}
+        }
       }
     },
     {
-      "if": {
-        "properties": {"mode": {"const": "critical"}},
-        "required": ["mode"]
-      },
+      "if": {"properties": {"mode": {"const": "CRITICAL"}}, "required": ["mode"]},
       "then": {
-        "properties": {"verification": {"const": "critical"}}
+        "properties": {
+          "reasoning_effort": {"const": "maximum"},
+          "tool_policy": {"const": "gated"},
+          "verification": {"const": "critical"}
+        }
       }
     },
     {
-      "if": {
-        "properties": {"mode": {"const": "specialist"}},
-        "required": ["mode"]
-      },
+      "if": {"properties": {"mode": {"const": "SPECIALIST"}}, "required": ["mode"]},
       "then": {
         "properties": {
           "verification": {"const": "specialist"},
-          "specialist_route": {"type": "string"}
+          "specialist_route": {"not": {"const": null}}
         },
         "required": ["specialist_route"]
       }
     },
     {
       "if": {
-        "properties": {"cost_status": {"enum": ["higher", "unknown"]}},
+        "properties": {"cost_status": {"const": "higher"}},
         "required": ["cost_status"]
       },
       "then": {
@@ -191,8 +178,34 @@
             "required": ["budget_authorization"]
           },
           {
-            "properties": {"settings_action": {"enum": ["unchanged", "recommend_only", "approval_required"]}},
+            "properties": {
+              "settings_action": {"enum": ["unchanged", "recommend_only", "approval_required"]},
+              "approval_required": {"const": true}
+            },
+            "required": ["settings_action", "approval_required"]
+          }
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {"cost_status": {"const": "unknown"}},
+        "required": ["cost_status"]
+      },
+      "then": {
+        "anyOf": [
+          {
+            "properties": {
+              "settings_action": {"const": "unchanged"}
+            },
             "required": ["settings_action"]
+          },
+          {
+            "properties": {
+              "settings_action": {"enum": ["recommend_only", "approval_required"]},
+              "approval_required": {"const": true}
+            },
+            "required": ["settings_action", "approval_required"]
           }
         ]
       }
@@ -222,8 +235,100 @@
       },
       "then": {
         "properties": {
-          "mode": {"const": "critical"},
+          "mode": {"const": "CRITICAL"},
+          "reasoning_effort": {"const": "maximum"},
+          "tool_policy": {"const": "gated"},
           "verification": {"const": "critical"}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "reason_codes": {
+            "contains": {
+              "enum": [
+                "missing_access",
+                "repeated_failure",
+                "required_dependency_blocked"
+              ]
+            }
+          }
+        },
+        "required": ["reason_codes"]
+      },
+      "then": {
+        "properties": {
+          "execution_disposition": {"const": "stop"}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"execution_disposition": {"const": "stop"}},
+        "required": ["execution_disposition"]
+      },
+      "then": {
+        "properties": {
+          "settings_action": {"enum": ["unchanged", "recommend_only", "approval_required"]},
+          "agent_policy": {"const": "none"},
+          "specialist_route": {"const": null},
+          "escalation_count": {"const": 0}
+        },
+        "anyOf": [
+          {
+            "properties": {"tool_policy": {"const": "none"}},
+            "required": ["tool_policy"]
+          },
+          {
+            "properties": {
+              "mode": {"const": "CRITICAL"},
+              "tool_policy": {"const": "gated"}
+            },
+            "required": ["mode", "tool_policy"]
+          }
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "reason_codes": {"contains": {"const": "untrusted_content"}}
+        },
+        "required": ["reason_codes"]
+      },
+      "then": {
+        "properties": {
+          "settings_action": {"enum": ["unchanged", "recommend_only"]},
+          "agent_policy": {"enum": ["none", "host_confirmed_only"]}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "reason_codes": {"contains": {"const": "capability_unavailable"}}
+        },
+        "required": ["reason_codes"]
+      },
+      "then": {
+        "properties": {
+          "capability_status": {"enum": ["unknown", "unavailable"]},
+          "settings_action": {"const": "recommend_only"}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "reason_codes": {"contains": {"const": "stale_adapter"}}
+        },
+        "required": ["reason_codes"]
+      },
+      "then": {
+        "properties": {
+          "capability_status": {"enum": ["expired", "mismatched"]},
+          "settings_action": {"const": "recommend_only"}
         }
       }
     }

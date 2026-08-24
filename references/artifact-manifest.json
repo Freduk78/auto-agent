@@ -1,0 +1,93 @@
+{
+  "manifest_version": "1.0.0",
+  "algorithm": "sha256",
+  "canonicalization": "sorted-path-utf8-nul-raw-file-sha256-lf",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "1b0871119b3fa5a5b520c9901a25c7d02ddf77b4dd4470259b9ad0460fe6e323"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "17ab98ab91f319be9acbcbb88ac584d0da7822eb65124f069c26d58547045ba5"
+    },
+    {
+      "path": "contracts/v1/execution-budget.schema.json",
+      "sha256": "181dee372c2ab130af49f4293487d7e9372cb2a89c7a5b2275b2ddec67d1acbe"
+    },
+    {
+      "path": "contracts/v1/policy-rules.json",
+      "sha256": "5007b7212507660043a2132c503191dbf75017e88f9dc0c28ec638d582e48463"
+    },
+    {
+      "path": "contracts/v1/vocabulary.json",
+      "sha256": "c0ee0d1e4fa51e6618f5426aa9d89cd27a1532231ce926f1296e439fb57a4c24"
+    },
+    {
+      "path": "references/adapter-manifest.schema.json",
+      "sha256": "68158c3417bdab96c3cb82ce89cdfce842ac708092878dfe7c163fc53616d616"
+    },
+    {
+      "path": "references/adapters/anthropic.json",
+      "sha256": "0b73f8b42cf2ddafe30fb09c304736710c75e32d7deabd5952b029df832404dc"
+    },
+    {
+      "path": "references/adapters/google-gemini.json",
+      "sha256": "68b0aaef2002344419c7aa01592607a768a6180346fc3f3a838d3db55bbf92f1"
+    },
+    {
+      "path": "references/adapters/openai.json",
+      "sha256": "ff9bf4e1e4d12b40fd99ddbda89f07d16136b3a8ae5b048f150baa642f31145d"
+    },
+    {
+      "path": "references/adapters/unknown.json",
+      "sha256": "37b80dc5ff105837579e287ffe23922a428e44ee643927b7a83d574039033a08"
+    },
+    {
+      "path": "references/decision-record.schema.json",
+      "sha256": "f665b1c378bab3c44395a52f272c5c9af898f9050db65b8dbc537df345ce706a"
+    },
+    {
+      "path": "references/execution-budget-policy.md",
+      "sha256": "8ef5e2b3beb5f6f6fee7ab0124f566d997599bd0b424e05cbd0c78dff933c4bd"
+    },
+    {
+      "path": "references/platform-adapters.md",
+      "sha256": "3e9073ff151ded7f3b1e4b4e5f3df9497f669b9e8eef80a60fa2a216400bd923"
+    },
+    {
+      "path": "references/routing-matrix.md",
+      "sha256": "21f06a26fdb5f57215db3c817b44c9a198deb540d4caee9a92704edc45e3eea5"
+    },
+    {
+      "path": "scripts/artifact_manifest.py",
+      "sha256": "4a9d67b8c8b5e400ee50fc0e741996d193981cfbd636d6d23ddc15023eee1c15"
+    },
+    {
+      "path": "scripts/forward_report.py",
+      "sha256": "1fc148b3a68d88ac6f2dd5ffdfec26776caf170e984876c9a8483dd75cdbc326"
+    },
+    {
+      "path": "scripts/merge_forward_observations.py",
+      "sha256": "e8e5855dd035f78de93c9aa166d2b005ce9ba8914e4345c733209809a9e98a3a"
+    },
+    {
+      "path": "scripts/validate.py",
+      "sha256": "a9457ff28a0eae67f3436dfdb031b67bb3829ca4f6484b92be74e02cee6bb142"
+    },
+    {
+      "path": "tests/capability-profiles.json",
+      "sha256": "7bf85a648bbedfeffc05664338298882c6d159d78ef1cadf1b2741450caa3676"
+    },
+    {
+      "path": "tests/forward-test-protocol.md",
+      "sha256": "e3968eedcad57ff7c03becad3bbf139b93d68bb166fff09a16ee37ccac23d2d2"
+    },
+    {
+      "path": "tests/routing-cases.json",
+      "sha256": "99b2d24ce7a2a47e0456f8498e5cdac0f9211680d5ac9f6203529b00e86c17a6"
+    }
+  ],
+  "bundle_sha256": "721aa437d39b076016a858d1de18778ba26944db46e75fe0aa1585446de8f5ba",
+  "manifest_sha256": "486d667e878540bdc44dbca6d79138a30769745bdb53825a56620ae0dbc83951"
+}

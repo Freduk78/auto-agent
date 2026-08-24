@@ -1,0 +1,39 @@
+{
+  "adapter_id": "google-gemini-api-and-agent-host",
+  "schema_version": "1.0.0",
+  "adapter_version": "1.0.0",
+  "platform": "google",
+  "reviewed_at": "2026-08-24",
+  "expires_at": "2026-11-24",
+  "fingerprint_algorithm": "sha256-canonical-json-v1",
+  "capability_fingerprint": "e5c4749f564137b3614a62d0c0e1f72bcbcb7a2fa3b00d3bd0a7aebc7801a14d",
+  "capability_contract": {
+    "control_names": ["model_class", "reasoning_effort", "latency_tier", "context_budget", "tool_policy", "agent_policy", "specialist_route", "response_style"],
+    "control_values": {
+      "model_class": ["economy", "balanced", "frontier", "current_only"],
+      "reasoning_effort": ["minimal", "low", "medium", "high", "maximum", "current_only"],
+      "latency_tier": ["fastest", "standard", "quality_first", "current_only"],
+      "context_budget": ["minimum_sufficient", "working_set", "broad", "complete_safety_evidence", "current_only"],
+      "tool_policy": ["none", "targeted", "evidence_led", "gated", "host_policy_only"],
+      "agent_policy": ["none", "bounded", "host_confirmed_only", "host_policy_only"],
+      "specialist_route": ["image", "audio", "video", "document", "spreadsheet", "browser", "diagram", "security_review", "code_execution", "other_confirmed", "none"],
+      "response_style": ["concise", "proportionate", "detailed", "risk_explicit", "artifact_fit", "current_only"]
+    },
+    "requires_runtime_confirmation": true
+  },
+  "supported_controls": {
+    "model_class": ["economy", "balanced", "frontier", "current_only"],
+    "reasoning_effort": ["minimal", "low", "medium", "high", "maximum", "current_only"],
+    "latency_tier": ["fastest", "standard", "quality_first", "current_only"],
+    "context_budget": ["minimum_sufficient", "working_set", "broad", "complete_safety_evidence", "current_only"],
+    "tool_policy": ["none", "targeted", "evidence_led", "gated", "host_policy_only"],
+    "agent_policy": ["none", "bounded", "host_confirmed_only", "host_policy_only"],
+    "specialist_route": ["image", "audio", "video", "document", "spreadsheet", "browser", "diagram", "security_review", "code_execution", "other_confirmed", "none"],
+    "response_style": ["concise", "proportionate", "detailed", "risk_explicit", "artifact_fit", "current_only"]
+  },
+  "first_party_sources": [
+    "https://ai.google.dev/gemini-api/docs/thinking",
+    "https://ai.google.dev/gemini-api/docs/models"
+  ],
+  "failure_behavior": "recommend_only"
+}

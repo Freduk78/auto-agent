@@ -1,0 +1,114 @@
+name: Quality gate
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: quality-gate-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Run dependency-free validation and regression tests
+        run: |
+          python scripts/validate.py
+          python -m unittest discover -s tests -p "test_*.py"
+
+  static-analysis:
+    name: Static and workflow analysis
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+
+      - name: Install pinned development-only analyzers
+        run: |
+          python -m pip install --disable-pip-version-check --no-input \
+            --require-hashes -r requirements-dev.lock
+
+      - name: Run Ruff
+        run: ruff check scripts tests .github/scripts
+
+      - name: Run Bandit
+        run: bandit -q -r scripts tests .github/scripts
+
+      - name: Run Semgrep local policy rules
+        env:
+          SEMGREP_SEND_METRICS: "off"
+        run: semgrep scan --config .github/semgrep --error --metrics off --disable-version-check
+
+      - name: Validate JSON and YAML safely
+        run: |
+          python .github/scripts/validate_json.py
+          ruby .github/scripts/validate_yaml.rb
+
+      - name: Validate Markdown links
+        run: python .github/scripts/check_markdown_links.py
+
+      - name: Install pinned workflow analyzers
+        env:
+          ACTIONLINT_VERSION: "1.7.12"
+          ACTIONLINT_SHA256: "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8"
+          ACTIONLINT_DIR: ${{ runner.temp }}/actionlint
+        run: |
+          mkdir -p "$ACTIONLINT_DIR"
+          archive="$RUNNER_TEMP/actionlint.tar.gz"
+          curl --fail --location --proto '=https' --tlsv1.2 \
+            --output "$archive" \
+            "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
+          echo "${ACTIONLINT_SHA256}  ${archive}" | sha256sum --check
+          tar --extract --gzip --file "$archive" --directory "$ACTIONLINT_DIR" actionlint
+
+      - name: Run actionlint
+        env:
+          ACTIONLINT_DIR: ${{ runner.temp }}/actionlint
+        run: '"$ACTIONLINT_DIR/actionlint" .github/workflows/*.yml'
+
+      - name: Run zizmor
+        run: zizmor --offline .github/workflows
+
+  quality-gate:
+    name: quality-gate
+    if: ${{ always() }}
+    needs: [validate, static-analysis]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Require all quality jobs to pass
+        env:
+          VALIDATE_RESULT: ${{ needs.validate.result }}
+          STATIC_ANALYSIS_RESULT: ${{ needs.static-analysis.result }}
+        run: |
+          test "$VALIDATE_RESULT" = success
+          test "$STATIC_ANALYSIS_RESULT" = success

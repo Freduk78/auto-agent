@@ -1,6 +1,6 @@
 {
   "observed_at": "2026-08-24",
-  "artifact": "the commit containing this file",
+  "artifact": "d90b6c9f988eed6a624ffc29b649a1b34740ac2e",
   "host": "Codex isolated sub-agent runtime",
   "evaluator_model": "not_exposed",
   "runs_per_case": 1,

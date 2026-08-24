@@ -4,7 +4,7 @@ Tested: 2026-08-24.
 
 ## Run metadata
 
-- Artifact: the commit containing this report
+- Tested artifact commit: `d90b6c9f988eed6a624ffc29b649a1b34740ac2e`
 - Host: Codex isolated sub-agent runtime
 - Evaluator model/version: `not_exposed`
 - Default model and reasoning controls: not exposed to evaluators

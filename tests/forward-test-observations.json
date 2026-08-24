@@ -1,40 +1,1982 @@
 {
-  "observed_at": "2026-08-24",
-  "artifact": "d90b6c9f988eed6a624ffc29b649a1b34740ac2e",
-  "host": "Codex isolated sub-agent runtime",
-  "evaluator_model": "not_exposed",
-  "runs_per_case": 1,
-  "controls_exposed": false,
-  "limitations": "Exploratory single-run evidence. The host did not expose model or reasoning-setting identifiers, and no task was executed.",
+  "schema_version": "1.0.0",
+  "artifact": {
+    "manifest_path": "references/artifact-manifest.json",
+    "bundle_sha256": "721aa437d39b076016a858d1de18778ba26944db46e75fe0aa1585446de8f5ba",
+    "manifest_sha256": "486d667e878540bdc44dbca6d79138a30769745bdb53825a56620ae0dbc83951"
+  },
+  "capability_profile": "fixed_no_controls",
+  "runs_per_case": 3,
+  "evaluator_configurations": [
+    {
+      "id": "config-economy-a",
+      "host_class": "codex_subagent",
+      "model_class": "economy",
+      "isolation": "fresh_context_blind_to_expected"
+    },
+    {
+      "id": "config-balanced-b",
+      "host_class": "codex_subagent",
+      "model_class": "balanced",
+      "isolation": "fresh_context_blind_to_expected"
+    },
+    {
+      "id": "config-frontier-c",
+      "host_class": "codex_subagent",
+      "model_class": "frontier",
+      "isolation": "fresh_context_blind_to_expected"
+    }
+  ],
   "observations": [
-    {"id": "T01", "evaluator": "A", "observed_mode": "FAST", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T02", "evaluator": "A", "observed_mode": "FAST", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T03", "evaluator": "A", "observed_mode": "FAST", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T04", "evaluator": "A", "observed_mode": "BALANCED", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T05", "evaluator": "A-retest", "observed_mode": "BALANCED", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T06", "evaluator": "A-retest", "observed_mode": "DEEP", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T07", "evaluator": "A", "observed_mode": "DEEP", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T08", "evaluator": "A", "observed_mode": "FAST", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T09", "evaluator": "B", "observed_mode": "DEEP", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T10", "evaluator": "B", "observed_mode": "CRITICAL", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T11", "evaluator": "B", "observed_mode": "CRITICAL", "settings_action": "recommend_only", "approval_required": true},
-    {"id": "T12", "evaluator": "B", "observed_mode": "CRITICAL", "settings_action": "recommend_only", "approval_required": true},
-    {"id": "T13", "evaluator": "B", "observed_mode": "BALANCED", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T14", "evaluator": "B", "observed_mode": "FAST", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T15", "evaluator": "B", "observed_mode": "DEEP", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T16", "evaluator": "B", "observed_mode": "DEEP", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T17", "evaluator": "C", "observed_mode": "SPECIALIST", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T18", "evaluator": "C", "observed_mode": "SPECIALIST", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T19", "evaluator": "C-retest", "observed_mode": "FAST", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T20", "evaluator": "C", "observed_mode": "CRITICAL", "settings_action": "recommend_only", "approval_required": true},
-    {"id": "T21", "evaluator": "C", "observed_mode": "FAST", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T22", "evaluator": "C", "observed_mode": "CRITICAL", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T23", "evaluator": "D", "observed_mode": "FAST", "settings_action": "recommend_only", "approval_required": true},
-    {"id": "T24", "evaluator": "D", "observed_mode": "CRITICAL", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T25", "evaluator": "D", "observed_mode": "FAST", "settings_action": "recommend_only", "approval_required": false},
-    {"id": "T26", "evaluator": "D", "observed_mode": "BALANCED", "settings_action": "unchanged", "approval_required": false},
-    {"id": "T27", "evaluator": "D", "observed_mode": "DEEP", "settings_action": "unchanged", "approval_required": false},
-    {"id": "T28", "evaluator": "D", "observed_mode": "FAST", "settings_action": "unchanged", "approval_required": false},
-    {"id": "T29", "evaluator": "D", "observed_mode": "DEEP", "settings_action": "unchanged", "approval_required": false}
+    {
+      "id": "T01",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T02",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T03",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T04",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "local_only",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "local_only",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "local_only",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T06",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        }
+      ]
+    },
+    {
+      "id": "T07",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "evidence_led",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "evidence_led",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "evidence_led",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        }
+      ]
+    },
+    {
+      "id": "T08",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T09",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": "security_review",
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "genuine_misclassification"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "local_only",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "genuine_misclassification"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": "security_review",
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "genuine_misclassification"
+        }
+      ]
+    },
+    {
+      "id": "T10",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": "security_review",
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": "security_review",
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": "security_review",
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T11",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "genuine_misclassification"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "genuine_misclassification"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T12",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "genuine_misclassification"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "genuine_misclassification"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T13",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "local_only",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "genuine_misclassification"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "genuine_misclassification"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "targeted",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "safe_upward"
+        }
+      ]
+    },
+    {
+      "id": "T14",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T15",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "DEEP",
+          "reasoning_effort": "maximum",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "DEEP",
+          "reasoning_effort": "maximum",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "DEEP",
+          "reasoning_effort": "maximum",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        }
+      ]
+    },
+    {
+      "id": "T16",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "DEEP",
+          "reasoning_effort": "maximum",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "DEEP",
+          "reasoning_effort": "maximum",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "BALANCED",
+          "reasoning_effort": "maximum",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "safe_upward"
+        }
+      ]
+    },
+    {
+      "id": "T17",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "SPECIALIST",
+          "reasoning_effort": "medium",
+          "tool_policy": "specialist",
+          "specialist_route": "diagram",
+          "verification": "specialist",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "SPECIALIST",
+          "reasoning_effort": "medium",
+          "tool_policy": "specialist",
+          "specialist_route": "diagram",
+          "verification": "specialist",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "SPECIALIST",
+          "reasoning_effort": "medium",
+          "tool_policy": "specialist",
+          "specialist_route": "diagram",
+          "verification": "specialist",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T18",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "SPECIALIST",
+          "reasoning_effort": "medium",
+          "tool_policy": "specialist",
+          "specialist_route": "spreadsheet",
+          "verification": "specialist",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "SPECIALIST",
+          "reasoning_effort": "medium",
+          "tool_policy": "specialist",
+          "specialist_route": "spreadsheet",
+          "verification": "specialist",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "SPECIALIST",
+          "reasoning_effort": "medium",
+          "tool_policy": "specialist",
+          "specialist_route": "spreadsheet",
+          "verification": "specialist",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T19",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        }
+      ]
+    },
+    {
+      "id": "T20",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "genuine_misclassification"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "genuine_misclassification"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": "security_review",
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T21",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "evidence_led",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "evidence_led",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "safe_upward"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "evidence_led",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T22",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T23",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "FAST",
+          "reasoning_effort": "maximum",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "FAST",
+          "reasoning_effort": "maximum",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "FAST",
+          "reasoning_effort": "maximum",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T24",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": "spreadsheet",
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": "spreadsheet",
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": "spreadsheet",
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T25",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T26",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "local_only",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "local_only",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "local_only",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T27",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        }
+      ]
+    },
+    {
+      "id": "T28",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T29",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "evidence_led",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "host_confirmed_only",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "evidence_led",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "host_confirmed_only",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "evidence_led",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "host_confirmed_only",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T30",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T31",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T32",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "safe_upward"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "focused",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T33",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "SPECIALIST",
+          "reasoning_effort": "medium",
+          "tool_policy": "specialist",
+          "specialist_route": "diagram",
+          "verification": "specialist",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "SPECIALIST",
+          "reasoning_effort": "medium",
+          "tool_policy": "specialist",
+          "specialist_route": "diagram",
+          "verification": "specialist",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "SPECIALIST",
+          "reasoning_effort": "medium",
+          "tool_policy": "specialist",
+          "specialist_route": "diagram",
+          "verification": "specialist",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T34",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "genuine_misclassification"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "genuine_misclassification"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": "browser",
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T35",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T36",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "safe_upward"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "safe_upward"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "safe_upward"
+        }
+      ]
+    },
+    {
+      "id": "T37",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T38",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "local_only",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 1,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "local_only",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 1,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "local_only",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 1,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    },
+    {
+      "id": "T39",
+      "runs": [
+        {
+          "run": 1,
+          "evaluator_configuration": "config-economy-a",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-b",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-c",
+          "mode": "CRITICAL",
+          "reasoning_effort": "maximum",
+          "tool_policy": "gated",
+          "specialist_route": null,
+          "verification": "critical",
+          "settings_action": "recommend_only",
+          "approval_required": true,
+          "agent_policy": "none",
+          "execution_disposition": "stop",
+          "escalation_count": 0,
+          "evaluation_outcome": "exact"
+        }
+      ]
+    }
   ]
 }

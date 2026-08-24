@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Freduk78/auto-agent/blob/main/references/adapter-manifest.schema.json",
+  "x-auto-agent-schema-id": "auto-agent.platform-adapter",
+  "x-auto-agent-schema-version": "1.0.0",
+  "title": "Auto Agent platform adapter manifest",
+  "description": "Versioned, non-secret metadata for a platform capability mapper. Missing, expired, mismatched, or unsupported metadata must fail closed to recommend_only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "adapter_id",
+    "schema_version",
+    "adapter_version",
+    "platform",
+    "reviewed_at",
+    "expires_at",
+    "fingerprint_algorithm",
+    "capability_fingerprint",
+    "capability_contract",
+    "supported_controls",
+    "first_party_sources",
+    "failure_behavior"
+  ],
+  "properties": {
+    "adapter_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 80},
+    "schema_version": {"const": "1.0.0"},
+    "adapter_version": {"type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"},
+    "platform": {"enum": ["openai", "anthropic", "google", "unknown"]},
+    "reviewed_at": {"type": "string", "format": "date"},
+    "expires_at": {"type": "string", "format": "date"},
+    "fingerprint_algorithm": {"const": "sha256-canonical-json-v1"},
+    "capability_fingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "capability_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["control_names", "control_values", "requires_runtime_confirmation"],
+      "properties": {
+        "control_names": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["model_class", "reasoning_effort", "latency_tier", "context_budget", "tool_policy", "agent_policy", "specialist_route", "response_style"]}},
+        "control_values": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["model_class", "reasoning_effort", "latency_tier", "context_budget", "tool_policy", "agent_policy", "specialist_route", "response_style"],
+          "properties": {
+            "model_class": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "maxLength": 64}},
+            "reasoning_effort": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "maxLength": 64}},
+            "latency_tier": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "maxLength": 64}},
+            "context_budget": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "maxLength": 64}},
+            "tool_policy": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "maxLength": 64}},
+            "agent_policy": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "maxLength": 64}},
+            "specialist_route": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "maxLength": 64}},
+            "response_style": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "maxLength": 64}}
+          }
+        },
+        "requires_runtime_confirmation": {"const": true}
+      }
+    },
+    "supported_controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model_class", "reasoning_effort", "latency_tier", "context_budget", "tool_policy", "agent_policy", "specialist_route", "response_style"],
+      "properties": {
+        "model_class": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["economy", "balanced", "frontier", "specialist", "current_only"]}},
+        "reasoning_effort": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["minimal", "low", "medium", "high", "maximum", "current_only"]}},
+        "latency_tier": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["fastest", "standard", "quality_first", "current_only"]}},
+        "context_budget": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["minimum_sufficient", "working_set", "broad", "complete_safety_evidence", "current_only"]}},
+        "tool_policy": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["none", "targeted", "evidence_led", "gated", "specialist", "host_policy_only"]}},
+        "agent_policy": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["none", "bounded", "host_confirmed_only", "host_policy_only"]}},
+        "specialist_route": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["image", "audio", "video", "document", "spreadsheet", "browser", "diagram", "security_review", "code_execution", "other_confirmed", "none"]}},
+        "response_style": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["concise", "proportionate", "detailed", "risk_explicit", "artifact_fit", "current_only"]}}
+      }
+    },
+    "first_party_sources": {"type": "array", "minItems": 1, "items": {"type": "string", "format": "uri", "pattern": "^https://"}},
+    "failure_behavior": {"const": "recommend_only"}
+  }
+}

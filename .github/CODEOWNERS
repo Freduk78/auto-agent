@@ -1,0 +1,7 @@
+# Keep policy, release, and supply-chain changes under explicit maintainer review.
+* @Freduk78
+/.github/ @Freduk78
+/SKILL.md @Freduk78
+/references/ @Freduk78
+/scripts/ @Freduk78
+/tests/ @Freduk78

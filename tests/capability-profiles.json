@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "profiles": [
+    {
+      "id": "fixed_no_controls",
+      "description": "Evaluator can classify only. Model, effort, service tier, tools, context, and agent controls are not exposed.",
+      "controls_exposed": false,
+      "capability_status": "unavailable",
+      "cost_status": "unknown",
+      "can_apply_settings": false,
+      "required_settings_action": "recommend_only"
+    }
+  ]
+}

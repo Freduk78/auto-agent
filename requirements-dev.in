@@ -1,0 +1,5 @@
+# CI-only analyzers. Runtime remains dependency-free.
+bandit==1.9.4
+ruff==0.16.3
+semgrep==1.172.0
+zizmor==1.29.0

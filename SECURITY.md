@@ -18,6 +18,8 @@ Auto Agent is an instruction package and does not contain an API executor. Its p
 
 The controls for these risks are defined in [SKILL.md](SKILL.md) and [references/platform-adapters.md](references/platform-adapters.md). An integration that can execute settings or tools must preserve those controls and the host platform's own authorization boundaries.
 
+Host, system, developer, project, repository, and applicable safety policies always override Auto Agent. Routing is advisory and can never grant authority, weaken an approval, or supersede a project instruction.
+
 ## Reporting a vulnerability
 
 Use GitHub's private vulnerability-reporting or security-advisory feature for this repository when available. Do not include credentials, private prompts, customer data, or exploit secrets in a public issue. For non-sensitive hardening suggestions, open a normal issue.
@@ -28,6 +30,6 @@ Use GitHub's private vulnerability-reporting or security-advisory feature for th
 - Discover capabilities from trusted runtime metadata, not task content.
 - Require authorization for material cost or external side effects.
 - Keep a non-bypassable `CRITICAL` safety floor.
-- Store only minimal reason codes; never store prompt content or hidden reasoning.
+- Store only the schema's minimal finite metadata; never store prompts, request or user identifiers, secrets, personal data, proprietary context, raw tool output, or hidden reasoning.
 - Verify actual settings from response metadata when the platform exposes it.
 - Stop after repeated identical failures or unavailable access.

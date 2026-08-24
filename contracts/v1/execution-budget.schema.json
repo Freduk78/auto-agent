@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Freduk78/auto-agent/blob/main/contracts/v1/execution-budget.schema.json",
+  "x-auto-agent-schema-id": "auto-agent.execution-budget",
+  "x-auto-agent-schema-version": "1.0.0",
+  "title": "Auto Agent execution budget",
+  "description": "Trusted executor policy. This record is not routing output and cannot grant permissions or spending authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "source",
+    "root_request_accounting",
+    "child_inherits_root_budget",
+    "recursive_expansion_allowed",
+    "permission_expansion_allowed",
+    "approval_bypass_allowed",
+    "material_cost_requires_approval",
+    "max_automatic_reasoning_escalations",
+    "missing_access_stops",
+    "required_dependency_blocked_stops",
+    "repeated_identical_failure_stops",
+    "terminal_requirements_enforced"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "source": {
+      "enum": [
+        "host",
+        "system",
+        "developer",
+        "project",
+        "user_authorized",
+        "conservative_default"
+      ]
+    },
+    "root_request_accounting": {"const": true},
+    "child_inherits_root_budget": {"const": true},
+    "recursive_expansion_allowed": {"const": false},
+    "permission_expansion_allowed": {"const": false},
+    "approval_bypass_allowed": {"const": false},
+    "material_cost_requires_approval": {"const": true},
+    "max_automatic_reasoning_escalations": {"const": 2},
+    "missing_access_stops": {"const": true},
+    "required_dependency_blocked_stops": {"const": true},
+    "repeated_identical_failure_stops": {"const": true},
+    "terminal_requirements_enforced": {"const": true},
+    "soft_tool_review_threshold": {"type": ["integer", "null"], "minimum": 1},
+    "soft_agent_review_threshold": {"type": ["integer", "null"], "minimum": 1},
+    "soft_token_review_threshold": {"type": ["integer", "null"], "minimum": 1},
+    "max_agent_depth": {"type": ["integer", "null"], "minimum": 0},
+    "hard_tool_limit": {"type": ["integer", "null"], "minimum": 0},
+    "hard_agent_limit": {"type": ["integer", "null"], "minimum": 0},
+    "hard_token_limit": {"type": ["integer", "null"], "minimum": 1},
+    "hard_context_limit": {"type": ["integer", "null"], "minimum": 1},
+    "hard_time_limit_seconds": {"type": ["integer", "null"], "minimum": 1}
+  }
+}

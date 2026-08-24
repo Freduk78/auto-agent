@@ -1,0 +1,30 @@
+rules:
+  - id: no-dynamic-python-execution
+    languages: [python]
+    severity: ERROR
+    message: Dynamic execution is not permitted in this dependency-free validator.
+    patterns:
+      - pattern-either:
+          - pattern: eval(...)
+          - pattern: exec(...)
+          - pattern: compile(...)
+
+  - id: no-subprocess-or-shell
+    languages: [python]
+    severity: ERROR
+    message: Runtime scripts must not execute subprocesses or shells.
+    patterns:
+      - pattern-either:
+          - pattern: import subprocess
+          - pattern: from subprocess import $NAME
+          - pattern: subprocess.$METHOD(...)
+          - pattern: os.system(...)
+
+  - id: no-environment-variable-access
+    languages: [python]
+    severity: ERROR
+    message: Runtime scripts must not read environment variables.
+    patterns:
+      - pattern-either:
+          - pattern: os.environ
+          - pattern: os.getenv(...)

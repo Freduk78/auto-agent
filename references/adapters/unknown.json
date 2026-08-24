@@ -1,0 +1,36 @@
+{
+  "adapter_id": "unknown-platform",
+  "schema_version": "1.0.0",
+  "adapter_version": "1.0.0",
+  "platform": "unknown",
+  "reviewed_at": "2026-08-24",
+  "expires_at": "2026-11-24",
+  "fingerprint_algorithm": "sha256-canonical-json-v1",
+  "capability_fingerprint": "4cb1a151761284e97734c64e67b0c6ff51c052d53f77532c2cde9c10abfa2dc3",
+  "capability_contract": {
+    "control_names": ["model_class", "reasoning_effort", "latency_tier", "context_budget", "tool_policy", "agent_policy", "specialist_route", "response_style"],
+    "control_values": {
+      "model_class": ["current_only"],
+      "reasoning_effort": ["current_only"],
+      "latency_tier": ["current_only"],
+      "context_budget": ["current_only"],
+      "tool_policy": ["host_policy_only"],
+      "agent_policy": ["host_policy_only"],
+      "specialist_route": ["none"],
+      "response_style": ["current_only"]
+    },
+    "requires_runtime_confirmation": true
+  },
+  "supported_controls": {
+    "model_class": ["current_only"],
+    "reasoning_effort": ["current_only"],
+    "latency_tier": ["current_only"],
+    "context_budget": ["current_only"],
+    "tool_policy": ["host_policy_only"],
+    "agent_policy": ["host_policy_only"],
+    "specialist_route": ["none"],
+    "response_style": ["current_only"]
+  },
+  "first_party_sources": ["https://github.com/Freduk78/auto-agent/blob/main/references/platform-adapters.md"],
+  "failure_behavior": "recommend_only"
+}

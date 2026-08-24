@@ -4,4 +4,5 @@ interface:
   default_prompt: "Use $auto-agent to select the safest efficient execution mode for this request."
 
 policy:
-  allow_implicit_invocation: true
+  # Trial explicitly with $auto-agent. Enable only after project-specific acceptance criteria pass.
+  allow_implicit_invocation: false

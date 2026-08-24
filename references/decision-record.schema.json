@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Freduk78/auto-agent/blob/main/references/decision-record.schema.json",
+  "title": "Auto Agent decision record",
+  "description": "Ephemeral, non-sensitive routing metadata. Never add prompt text, identifiers, secrets, personal data, proprietary context, encoded task values, or hidden reasoning.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "mode",
+    "reason_codes",
+    "settings_action",
+    "capability_status",
+    "cost_status",
+    "budget_authorization",
+    "reasoning_effort",
+    "latency_preference",
+    "context_policy",
+    "tool_policy",
+    "agent_policy",
+    "verification",
+    "response_style",
+    "route_confidence",
+    "approval_required",
+    "escalation_count"
+  ],
+  "properties": {
+    "mode": {
+      "enum": ["fast", "balanced", "deep", "critical", "specialist"]
+    },
+    "reason_codes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "mechanical_task",
+          "ordinary_multi_step",
+          "difficult_reasoning",
+          "long_dependency_chain",
+          "low_route_confidence",
+          "explicit_speed",
+          "explicit_quality",
+          "current_information",
+          "long_context",
+          "specialist_modality",
+          "sensitive_domain:security",
+          "sensitive_domain:authentication",
+          "sensitive_domain:payments",
+          "sensitive_domain:legal",
+          "sensitive_domain:medical",
+          "sensitive_domain:financial",
+          "production_operation",
+          "destructive_action",
+          "sensitive_data",
+          "external_side_effect",
+          "permission_uncertain",
+          "material_cost_change",
+          "capability_unavailable",
+          "stale_adapter",
+          "reasoning_failure",
+          "missing_access",
+          "user_authorized_budget"
+        ]
+      }
+    },
+    "settings_action": {
+      "enum": ["applied", "unchanged", "recommend_only", "approval_required"]
+    },
+    "capability_status": {
+      "enum": ["confirmed", "partial", "unavailable", "unknown"]
+    },
+    "cost_status": {
+      "enum": ["lower", "unchanged", "higher", "unknown"]
+    },
+    "budget_authorization": {
+      "enum": ["not_required", "confirmed", "required", "unknown"]
+    },
+    "reasoning_effort": {
+      "enum": ["current", "minimal", "low", "medium", "high", "highest_supported"]
+    },
+    "latency_preference": {
+      "enum": ["fastest", "normal", "quality_first", "modality_dependent"]
+    },
+    "context_policy": {
+      "enum": ["minimum_sufficient", "relevant_working_set", "broader_dependencies", "complete_safety_evidence", "specialist_minimum"]
+    },
+    "tool_policy": {
+      "enum": ["none", "targeted", "evidence_led", "gated", "specialist"]
+    },
+    "agent_policy": {
+      "enum": ["none", "bounded", "host_confirmed_only"]
+    },
+    "specialist_route": {
+      "description": "Generic controlled modality only; never place task-derived identifiers or content here.",
+      "enum": [
+        null,
+        "image",
+        "audio",
+        "video",
+        "document",
+        "spreadsheet",
+        "browser",
+        "diagram",
+        "security_review",
+        "code_execution",
+        "other_confirmed"
+      ]
+    },
+    "verification": {
+      "enum": ["focused", "standard", "deep", "critical", "specialist"]
+    },
+    "response_style": {
+      "enum": ["concise", "proportionate", "detailed", "risk_explicit", "artifact_fit"]
+    },
+    "route_confidence": {
+      "enum": ["low", "medium", "high"]
+    },
+    "approval_required": {
+      "type": "boolean"
+    },
+    "escalation_count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"settings_action": {"const": "applied"}},
+        "required": ["settings_action"]
+      },
+      "then": {
+        "properties": {
+          "capability_status": {"const": "confirmed"},
+          "budget_authorization": {"enum": ["not_required", "confirmed"]},
+          "approval_required": {"const": false}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"settings_action": {"const": "approval_required"}},
+        "required": ["settings_action"]
+      },
+      "then": {
+        "properties": {"approval_required": {"const": true}}
+      }
+    },
+    {
+      "if": {
+        "properties": {"capability_status": {"enum": ["unavailable", "unknown"]}},
+        "required": ["capability_status"]
+      },
+      "then": {
+        "properties": {"settings_action": {"enum": ["unchanged", "recommend_only", "approval_required"]}}
+      }
+    },
+    {
+      "if": {
+        "properties": {"mode": {"const": "critical"}},
+        "required": ["mode"]
+      },
+      "then": {
+        "properties": {"verification": {"const": "critical"}}
+      }
+    },
+    {
+      "if": {
+        "properties": {"mode": {"const": "specialist"}},
+        "required": ["mode"]
+      },
+      "then": {
+        "properties": {
+          "verification": {"const": "specialist"},
+          "specialist_route": {"type": "string"}
+        },
+        "required": ["specialist_route"]
+      }
+    },
+    {
+      "if": {
+        "properties": {"cost_status": {"enum": ["higher", "unknown"]}},
+        "required": ["cost_status"]
+      },
+      "then": {
+        "anyOf": [
+          {
+            "properties": {"budget_authorization": {"const": "confirmed"}},
+            "required": ["budget_authorization"]
+          },
+          {
+            "properties": {"settings_action": {"enum": ["unchanged", "recommend_only", "approval_required"]}},
+            "required": ["settings_action"]
+          }
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "reason_codes": {
+            "contains": {
+              "enum": [
+                "sensitive_domain:security",
+                "sensitive_domain:authentication",
+                "sensitive_domain:payments",
+                "sensitive_domain:legal",
+                "sensitive_domain:medical",
+                "sensitive_domain:financial",
+                "production_operation",
+                "destructive_action",
+                "sensitive_data",
+                "external_side_effect",
+                "permission_uncertain"
+              ]
+            }
+          }
+        },
+        "required": ["reason_codes"]
+      },
+      "then": {
+        "properties": {
+          "mode": {"const": "critical"},
+          "verification": {"const": "critical"}
+        }
+      }
+    }
+  ]
+}

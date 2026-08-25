@@ -2,26 +2,26 @@
   "schema_version": "1.0.0",
   "artifact": {
     "manifest_path": "references/artifact-manifest.json",
-    "bundle_sha256": "721aa437d39b076016a858d1de18778ba26944db46e75fe0aa1585446de8f5ba",
-    "manifest_sha256": "486d667e878540bdc44dbca6d79138a30769745bdb53825a56620ae0dbc83951"
+    "bundle_sha256": "de146d4aa575a4aa247767d245b2c118d47b107e81b2ffd07ccd04174dd2fb8f",
+    "manifest_sha256": "962504a4cdeeb6432796e8311618ec4631c790e884003c20bfb3c6563cdeaa49"
   },
   "capability_profile": "fixed_no_controls",
   "runs_per_case": 3,
   "evaluator_configurations": [
     {
-      "id": "config-economy-a",
+      "id": "config-economy-r11",
       "host_class": "codex_subagent",
       "model_class": "economy",
       "isolation": "fresh_context_blind_to_expected"
     },
     {
-      "id": "config-balanced-b",
+      "id": "config-balanced-r11",
       "host_class": "codex_subagent",
       "model_class": "balanced",
       "isolation": "fresh_context_blind_to_expected"
     },
     {
-      "id": "config-frontier-c",
+      "id": "config-frontier-r11",
       "host_class": "codex_subagent",
       "model_class": "frontier",
       "isolation": "fresh_context_blind_to_expected"
@@ -33,7 +33,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -48,7 +48,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -63,7 +63,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -83,7 +83,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -98,7 +98,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -113,7 +113,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -133,7 +133,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -148,7 +148,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -163,7 +163,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -183,7 +183,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -198,7 +198,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "BALANCED",
           "reasoning_effort": "medium",
           "tool_policy": "none",
@@ -213,7 +213,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "BALANCED",
           "reasoning_effort": "medium",
           "tool_policy": "none",
@@ -233,7 +233,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "BALANCED",
           "reasoning_effort": "medium",
           "tool_policy": "local_only",
@@ -248,7 +248,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "BALANCED",
           "reasoning_effort": "medium",
           "tool_policy": "local_only",
@@ -263,7 +263,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "BALANCED",
           "reasoning_effort": "medium",
           "tool_policy": "local_only",
@@ -283,7 +283,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "none",
@@ -298,7 +298,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "none",
@@ -313,7 +313,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "none",
@@ -333,7 +333,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "evidence_led",
@@ -348,7 +348,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "evidence_led",
@@ -363,7 +363,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "evidence_led",
@@ -383,7 +383,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -398,7 +398,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -413,7 +413,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -433,22 +433,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
-          "mode": "CRITICAL",
-          "reasoning_effort": "maximum",
-          "tool_policy": "gated",
-          "specialist_route": "security_review",
-          "verification": "critical",
-          "settings_action": "recommend_only",
-          "approval_required": false,
-          "agent_policy": "none",
-          "execution_disposition": "proceed",
-          "escalation_count": 0,
-          "evaluation_outcome": "genuine_misclassification"
-        },
-        {
-          "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "BALANCED",
           "reasoning_effort": "medium",
           "tool_policy": "local_only",
@@ -462,13 +447,28 @@
           "evaluation_outcome": "genuine_misclassification"
         },
         {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-r11",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "genuine_misclassification"
+        },
+        {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
-          "mode": "CRITICAL",
-          "reasoning_effort": "maximum",
-          "tool_policy": "gated",
-          "specialist_route": "security_review",
-          "verification": "critical",
+          "evaluator_configuration": "config-frontier-r11",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "standard",
           "settings_action": "recommend_only",
           "approval_required": false,
           "agent_policy": "none",
@@ -483,7 +483,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -498,7 +498,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -513,7 +513,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -533,7 +533,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -542,13 +542,13 @@
           "settings_action": "recommend_only",
           "approval_required": true,
           "agent_policy": "none",
-          "execution_disposition": "stop",
+          "execution_disposition": "proceed",
           "escalation_count": 0,
-          "evaluation_outcome": "genuine_misclassification"
+          "evaluation_outcome": "exact"
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -557,13 +557,13 @@
           "settings_action": "recommend_only",
           "approval_required": true,
           "agent_policy": "none",
-          "execution_disposition": "stop",
+          "execution_disposition": "proceed",
           "escalation_count": 0,
-          "evaluation_outcome": "genuine_misclassification"
+          "evaluation_outcome": "exact"
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -583,7 +583,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -592,13 +592,13 @@
           "settings_action": "recommend_only",
           "approval_required": true,
           "agent_policy": "none",
-          "execution_disposition": "stop",
+          "execution_disposition": "proceed",
           "escalation_count": 0,
-          "evaluation_outcome": "genuine_misclassification"
+          "evaluation_outcome": "exact"
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -607,13 +607,13 @@
           "settings_action": "recommend_only",
           "approval_required": true,
           "agent_policy": "none",
-          "execution_disposition": "stop",
+          "execution_disposition": "proceed",
           "escalation_count": 0,
-          "evaluation_outcome": "genuine_misclassification"
+          "evaluation_outcome": "exact"
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -633,37 +633,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
-          "mode": "DEEP",
-          "reasoning_effort": "high",
-          "tool_policy": "local_only",
-          "specialist_route": null,
-          "verification": "deep",
-          "settings_action": "recommend_only",
-          "approval_required": false,
-          "agent_policy": "none",
-          "execution_disposition": "proceed",
-          "escalation_count": 0,
-          "evaluation_outcome": "genuine_misclassification"
-        },
-        {
-          "run": 2,
-          "evaluator_configuration": "config-balanced-b",
-          "mode": "DEEP",
-          "reasoning_effort": "high",
-          "tool_policy": "none",
-          "specialist_route": null,
-          "verification": "deep",
-          "settings_action": "recommend_only",
-          "approval_required": false,
-          "agent_policy": "none",
-          "execution_disposition": "stop",
-          "escalation_count": 0,
-          "evaluation_outcome": "genuine_misclassification"
-        },
-        {
-          "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "targeted",
@@ -674,7 +644,37 @@
           "agent_policy": "none",
           "execution_disposition": "proceed",
           "escalation_count": 0,
-          "evaluation_outcome": "safe_upward"
+          "evaluation_outcome": "permitted_variant"
+        },
+        {
+          "run": 2,
+          "evaluator_configuration": "config-balanced-r11",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "targeted",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-r11",
+          "mode": "DEEP",
+          "reasoning_effort": "high",
+          "tool_policy": "targeted",
+          "specialist_route": null,
+          "verification": "deep",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
         }
       ]
     },
@@ -683,7 +683,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -698,7 +698,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -713,7 +713,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -733,7 +733,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "DEEP",
           "reasoning_effort": "maximum",
           "tool_policy": "none",
@@ -748,7 +748,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "DEEP",
           "reasoning_effort": "maximum",
           "tool_policy": "none",
@@ -763,7 +763,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "DEEP",
           "reasoning_effort": "maximum",
           "tool_policy": "none",
@@ -783,7 +783,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "DEEP",
           "reasoning_effort": "maximum",
           "tool_policy": "none",
@@ -798,27 +798,27 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
-          "mode": "DEEP",
-          "reasoning_effort": "maximum",
-          "tool_policy": "none",
-          "specialist_route": null,
-          "verification": "deep",
-          "settings_action": "recommend_only",
-          "approval_required": false,
-          "agent_policy": "none",
-          "execution_disposition": "proceed",
-          "escalation_count": 0,
-          "evaluation_outcome": "exact"
-        },
-        {
-          "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "BALANCED",
           "reasoning_effort": "maximum",
           "tool_policy": "none",
           "specialist_route": null,
           "verification": "standard",
+          "settings_action": "recommend_only",
+          "approval_required": false,
+          "agent_policy": "none",
+          "execution_disposition": "proceed",
+          "escalation_count": 0,
+          "evaluation_outcome": "permitted_variant"
+        },
+        {
+          "run": 3,
+          "evaluator_configuration": "config-frontier-r11",
+          "mode": "DEEP",
+          "reasoning_effort": "maximum",
+          "tool_policy": "none",
+          "specialist_route": null,
+          "verification": "deep",
           "settings_action": "recommend_only",
           "approval_required": true,
           "agent_policy": "none",
@@ -833,7 +833,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "SPECIALIST",
           "reasoning_effort": "medium",
           "tool_policy": "specialist",
@@ -848,7 +848,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "SPECIALIST",
           "reasoning_effort": "medium",
           "tool_policy": "specialist",
@@ -863,7 +863,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "SPECIALIST",
           "reasoning_effort": "medium",
           "tool_policy": "specialist",
@@ -883,7 +883,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "SPECIALIST",
           "reasoning_effort": "medium",
           "tool_policy": "specialist",
@@ -898,7 +898,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "SPECIALIST",
           "reasoning_effort": "medium",
           "tool_policy": "specialist",
@@ -913,7 +913,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "SPECIALIST",
           "reasoning_effort": "medium",
           "tool_policy": "specialist",
@@ -933,7 +933,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -948,7 +948,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -963,7 +963,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -983,37 +983,37 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
-          "specialist_route": null,
+          "specialist_route": "security_review",
           "verification": "critical",
           "settings_action": "recommend_only",
           "approval_required": true,
           "agent_policy": "none",
-          "execution_disposition": "stop",
+          "execution_disposition": "proceed",
           "escalation_count": 0,
-          "evaluation_outcome": "genuine_misclassification"
+          "evaluation_outcome": "exact"
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
-          "specialist_route": null,
+          "specialist_route": "security_review",
           "verification": "critical",
           "settings_action": "recommend_only",
           "approval_required": true,
           "agent_policy": "none",
-          "execution_disposition": "stop",
+          "execution_disposition": "proceed",
           "escalation_count": 0,
-          "evaluation_outcome": "genuine_misclassification"
+          "evaluation_outcome": "exact"
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1033,22 +1033,22 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
-          "mode": "FAST",
-          "reasoning_effort": "minimal",
+          "evaluator_configuration": "config-economy-r11",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
           "tool_policy": "evidence_led",
           "specialist_route": null,
-          "verification": "focused",
+          "verification": "standard",
           "settings_action": "recommend_only",
           "approval_required": false,
           "agent_policy": "none",
           "execution_disposition": "proceed",
           "escalation_count": 0,
-          "evaluation_outcome": "exact"
+          "evaluation_outcome": "safe_upward"
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "BALANCED",
           "reasoning_effort": "medium",
           "tool_policy": "evidence_led",
@@ -1063,7 +1063,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "evidence_led",
@@ -1083,7 +1083,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1098,7 +1098,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1113,7 +1113,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1133,7 +1133,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "FAST",
           "reasoning_effort": "maximum",
           "tool_policy": "none",
@@ -1148,7 +1148,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "FAST",
           "reasoning_effort": "maximum",
           "tool_policy": "none",
@@ -1163,7 +1163,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "FAST",
           "reasoning_effort": "maximum",
           "tool_policy": "none",
@@ -1171,10 +1171,10 @@
           "verification": "focused",
           "settings_action": "recommend_only",
           "approval_required": true,
-          "agent_policy": "none",
+          "agent_policy": "host_confirmed_only",
           "execution_disposition": "proceed",
           "escalation_count": 0,
-          "evaluation_outcome": "exact"
+          "evaluation_outcome": "permitted_variant"
         }
       ]
     },
@@ -1183,7 +1183,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1198,7 +1198,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1213,7 +1213,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1233,7 +1233,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -1248,7 +1248,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -1263,7 +1263,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -1283,7 +1283,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "BALANCED",
           "reasoning_effort": "medium",
           "tool_policy": "local_only",
@@ -1298,7 +1298,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "BALANCED",
           "reasoning_effort": "medium",
           "tool_policy": "local_only",
@@ -1313,7 +1313,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "BALANCED",
           "reasoning_effort": "medium",
           "tool_policy": "local_only",
@@ -1333,7 +1333,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "none",
@@ -1348,7 +1348,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "none",
@@ -1363,7 +1363,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "none",
@@ -1383,7 +1383,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -1398,7 +1398,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -1413,7 +1413,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -1433,7 +1433,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "evidence_led",
@@ -1448,7 +1448,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "evidence_led",
@@ -1463,7 +1463,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "evidence_led",
@@ -1483,7 +1483,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -1498,7 +1498,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -1513,7 +1513,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -1533,7 +1533,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "BALANCED",
           "reasoning_effort": "medium",
           "tool_policy": "none",
@@ -1548,22 +1548,22 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
-          "mode": "BALANCED",
-          "reasoning_effort": "medium",
+          "evaluator_configuration": "config-balanced-r11",
+          "mode": "FAST",
+          "reasoning_effort": "minimal",
           "tool_policy": "none",
           "specialist_route": null,
-          "verification": "standard",
+          "verification": "focused",
           "settings_action": "recommend_only",
           "approval_required": false,
           "agent_policy": "none",
           "execution_disposition": "stop",
           "escalation_count": 0,
-          "evaluation_outcome": "exact"
+          "evaluation_outcome": "permitted_variant"
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "BALANCED",
           "reasoning_effort": "medium",
           "tool_policy": "none",
@@ -1583,22 +1583,22 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
-          "mode": "FAST",
-          "reasoning_effort": "minimal",
+          "evaluator_configuration": "config-economy-r11",
+          "mode": "BALANCED",
+          "reasoning_effort": "medium",
           "tool_policy": "none",
           "specialist_route": null,
-          "verification": "focused",
+          "verification": "standard",
           "settings_action": "recommend_only",
           "approval_required": false,
           "agent_policy": "none",
           "execution_disposition": "stop",
           "escalation_count": 0,
-          "evaluation_outcome": "exact"
+          "evaluation_outcome": "safe_upward"
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "BALANCED",
           "reasoning_effort": "medium",
           "tool_policy": "none",
@@ -1613,7 +1613,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "FAST",
           "reasoning_effort": "minimal",
           "tool_policy": "none",
@@ -1633,7 +1633,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "SPECIALIST",
           "reasoning_effort": "medium",
           "tool_policy": "specialist",
@@ -1648,7 +1648,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "SPECIALIST",
           "reasoning_effort": "medium",
           "tool_policy": "specialist",
@@ -1663,7 +1663,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "SPECIALIST",
           "reasoning_effort": "medium",
           "tool_policy": "specialist",
@@ -1683,37 +1683,37 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
-          "specialist_route": null,
+          "specialist_route": "browser",
           "verification": "critical",
           "settings_action": "recommend_only",
           "approval_required": true,
           "agent_policy": "none",
-          "execution_disposition": "stop",
+          "execution_disposition": "proceed",
           "escalation_count": 0,
-          "evaluation_outcome": "genuine_misclassification"
+          "evaluation_outcome": "exact"
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
-          "specialist_route": null,
+          "specialist_route": "browser",
           "verification": "critical",
           "settings_action": "recommend_only",
           "approval_required": true,
           "agent_policy": "none",
-          "execution_disposition": "stop",
+          "execution_disposition": "proceed",
           "escalation_count": 0,
-          "evaluation_outcome": "genuine_misclassification"
+          "evaluation_outcome": "exact"
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1733,7 +1733,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "none",
@@ -1748,7 +1748,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "none",
@@ -1763,7 +1763,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "none",
@@ -1783,7 +1783,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1798,7 +1798,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1813,7 +1813,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1833,7 +1833,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1848,7 +1848,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1863,7 +1863,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1883,7 +1883,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "local_only",
@@ -1898,7 +1898,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "local_only",
@@ -1913,7 +1913,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "DEEP",
           "reasoning_effort": "high",
           "tool_policy": "local_only",
@@ -1933,7 +1933,7 @@
       "runs": [
         {
           "run": 1,
-          "evaluator_configuration": "config-economy-a",
+          "evaluator_configuration": "config-economy-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1948,7 +1948,7 @@
         },
         {
           "run": 2,
-          "evaluator_configuration": "config-balanced-b",
+          "evaluator_configuration": "config-balanced-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",
@@ -1963,7 +1963,7 @@
         },
         {
           "run": 3,
-          "evaluator_configuration": "config-frontier-c",
+          "evaluator_configuration": "config-frontier-r11",
           "mode": "CRITICAL",
           "reasoning_effort": "maximum",
           "tool_policy": "gated",

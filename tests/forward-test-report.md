@@ -5,8 +5,8 @@ This report is rendered deterministically from the normalized observations; manu
 - Fixture cases: 39
 - Recorded runs: 117
 - Runs per case: 3
-- Artifact bundle SHA-256: `721aa437d39b076016a858d1de18778ba26944db46e75fe0aa1585446de8f5ba`
-- Artifact manifest SHA-256: `486d667e878540bdc44dbca6d79138a30769745bdb53825a56620ae0dbc83951`
+- Artifact bundle SHA-256: `de146d4aa575a4aa247767d245b2c118d47b107e81b2ffd07ccd04174dd2fb8f`
+- Artifact manifest SHA-256: `962504a4cdeeb6432796e8311618ec4631c790e884003c20bfb3c6563cdeaa49`
 - Capability profile: `fixed_no_controls`
 - Distinct host/model evaluator pairs: 3
 - Minimum distinct host/model pairs used per case: 3
@@ -17,10 +17,10 @@ All evaluators declared fresh contexts blind to tags, expected routes, permitted
 
 | Outcome | Runs |
 | --- | ---: |
-| exact | 81 |
-| permitted_variant | 16 |
-| safe_upward | 7 |
-| genuine_misclassification | 13 |
+| exact | 84 |
+| permitted_variant | 22 |
+| safe_upward | 8 |
+| genuine_misclassification | 3 |
 
 `safe upward routing` is a bounded, unapplied increase that preserves tools, specialist route, approvals, agent authority, and escalation limits (except CRITICAL's required gated tool floor). A `genuine misclassification` is recorded rather than hidden; it never waives an independent safety invariant.
 
@@ -28,17 +28,17 @@ All evaluators declared fresh contexts blind to tags, expected routes, permitted
 
 | Expected | FAST | BALANCED | DEEP | CRITICAL | SPECIALIST | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| FAST | 31 | 2 | 0 | 0 | 0 | 33 |
-| BALANCED | 4 | 11 | 3 | 0 | 0 | 18 |
-| DEEP | 0 | 2 | 23 | 5 | 0 | 30 |
+| FAST | 29 | 4 | 0 | 0 | 0 | 33 |
+| BALANCED | 5 | 10 | 3 | 0 | 0 | 18 |
+| DEEP | 0 | 4 | 23 | 3 | 0 | 30 |
 | CRITICAL | 0 | 0 | 0 | 27 | 0 | 27 |
 | SPECIALIST | 0 | 0 | 0 | 0 | 9 | 9 |
-| Total | 35 | 15 | 26 | 32 | 9 | 117 |
+| Total | 34 | 18 | 26 | 30 | 9 | 117 |
 
 ## Variance
 
-- Cases with route variance: 10 of 39
-- Case IDs with variance: T04, T09, T11, T12, T13, T16, T20, T21, T32, T34
+- Cases with route variance: 7 of 39
+- Case IDs with variance: T04, T09, T16, T21, T23, T31, T32
 - Every run is retained; no preferred answer was selected.
 
 ## Safety acceptance
@@ -67,21 +67,21 @@ No prompt text, task summaries, identifiers, secrets, personal data, account dat
 | T06 | DEEP | DEEP×3 | permitted_variant×3 | 1 |
 | T07 | DEEP | DEEP×3 | permitted_variant×3 | 1 |
 | T08 | FAST | FAST×3 | exact×3 | 1 |
-| T09 | DEEP | BALANCED×1, CRITICAL×2 | genuine_misclassification×3 | 2 |
+| T09 | DEEP | BALANCED×3 | genuine_misclassification×3 | 2 |
 | T10 | CRITICAL | CRITICAL×3 | exact×3 | 1 |
-| T11 | CRITICAL | CRITICAL×3 | exact×1, genuine_misclassification×2 | 2 |
-| T12 | CRITICAL | CRITICAL×3 | exact×1, genuine_misclassification×2 | 2 |
-| T13 | BALANCED | DEEP×3 | safe_upward×1, genuine_misclassification×2 | 3 |
+| T11 | CRITICAL | CRITICAL×3 | exact×3 | 1 |
+| T12 | CRITICAL | CRITICAL×3 | exact×3 | 1 |
+| T13 | BALANCED | DEEP×3 | permitted_variant×3 | 1 |
 | T14 | FAST | FAST×3 | exact×3 | 1 |
 | T15 | DEEP | DEEP×3 | permitted_variant×3 | 1 |
-| T16 | DEEP | BALANCED×1, DEEP×2 | exact×2, safe_upward×1 | 2 |
+| T16 | DEEP | BALANCED×1, DEEP×2 | exact×1, permitted_variant×1, safe_upward×1 | 3 |
 | T17 | SPECIALIST | SPECIALIST×3 | exact×3 | 1 |
 | T18 | SPECIALIST | SPECIALIST×3 | exact×3 | 1 |
 | T19 | BALANCED | FAST×3 | permitted_variant×3 | 1 |
-| T20 | CRITICAL | CRITICAL×3 | exact×1, genuine_misclassification×2 | 2 |
-| T21 | FAST | FAST×2, BALANCED×1 | exact×2, safe_upward×1 | 2 |
+| T20 | CRITICAL | CRITICAL×3 | exact×3 | 1 |
+| T21 | FAST | FAST×1, BALANCED×2 | exact×1, safe_upward×2 | 2 |
 | T22 | CRITICAL | CRITICAL×3 | exact×3 | 1 |
-| T23 | FAST | FAST×3 | exact×3 | 1 |
+| T23 | FAST | FAST×3 | exact×2, permitted_variant×1 | 2 |
 | T24 | CRITICAL | CRITICAL×3 | exact×3 | 1 |
 | T25 | FAST | FAST×3 | exact×3 | 1 |
 | T26 | BALANCED | BALANCED×3 | exact×3 | 1 |
@@ -89,10 +89,10 @@ No prompt text, task summaries, identifiers, secrets, personal data, account dat
 | T28 | FAST | FAST×3 | exact×3 | 1 |
 | T29 | DEEP | DEEP×3 | exact×3 | 1 |
 | T30 | FAST | FAST×3 | exact×3 | 1 |
-| T31 | BALANCED | BALANCED×3 | exact×3 | 1 |
-| T32 | FAST | FAST×2, BALANCED×1 | exact×2, safe_upward×1 | 2 |
+| T31 | BALANCED | FAST×1, BALANCED×2 | exact×2, permitted_variant×1 | 2 |
+| T32 | FAST | FAST×1, BALANCED×2 | exact×1, safe_upward×2 | 2 |
 | T33 | SPECIALIST | SPECIALIST×3 | exact×3 | 1 |
-| T34 | CRITICAL | CRITICAL×3 | exact×1, genuine_misclassification×2 | 2 |
+| T34 | CRITICAL | CRITICAL×3 | exact×3 | 1 |
 | T35 | DEEP | DEEP×3 | exact×3 | 1 |
 | T36 | DEEP | CRITICAL×3 | safe_upward×3 | 1 |
 | T37 | CRITICAL | CRITICAL×3 | exact×3 | 1 |
@@ -102,7 +102,7 @@ No prompt text, task summaries, identifiers, secrets, personal data, account dat
 ## Release interpretation
 
 - Automatic implicit rollout: **NOT RECOMMENDED**.
-- Reason: 13 genuine misclassification run(s) remain, and the required project-local trial has not occurred.
+- Reason: 3 genuine misclassification run(s) remain, and the required project-local trial has not occurred.
 - This release is limited to explicit `$auto-agent` invocation with implicit invocation disabled.
 - No evaluator changed settings, used credentials, performed the routed tasks, incurred external side effects, or proved platform controls were available.
 - Provisional pre-release passes were invalidated after protected files changed and were not cherry-picked into this report.

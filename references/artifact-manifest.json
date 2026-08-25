@@ -5,7 +5,7 @@
   "files": [
     {
       "path": "SKILL.md",
-      "sha256": "1b0871119b3fa5a5b520c9901a25c7d02ddf77b4dd4470259b9ad0460fe6e323"
+      "sha256": "7a4ddecd075572705d8e708e4dfae3d54eda41a68e765cb0c36e02841c445fc4"
     },
     {
       "path": "agents/openai.yaml",
@@ -85,9 +85,9 @@
     },
     {
       "path": "tests/routing-cases.json",
-      "sha256": "99b2d24ce7a2a47e0456f8498e5cdac0f9211680d5ac9f6203529b00e86c17a6"
+      "sha256": "3e09ea239366b5623fc9cfa557a62352dc66cccf68e21f3b33f30e0c2046229f"
     }
   ],
-  "bundle_sha256": "721aa437d39b076016a858d1de18778ba26944db46e75fe0aa1585446de8f5ba",
-  "manifest_sha256": "486d667e878540bdc44dbca6d79138a30769745bdb53825a56620ae0dbc83951"
+  "bundle_sha256": "de146d4aa575a4aa247767d245b2c118d47b107e81b2ffd07ccd04174dd2fb8f",
+  "manifest_sha256": "962504a4cdeeb6432796e8311618ec4631c790e884003c20bfb3c6563cdeaa49"
 }

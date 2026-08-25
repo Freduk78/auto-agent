@@ -9,6 +9,20 @@ Releases are explicit, reviewable, signed, and reversible. Only a maintainer may
 3. The changelog records user-visible and safety-relevant changes.
 4. The release version follows Semantic Versioning and has no duplicate tag.
 
+## Adapter renewal
+
+A maintainer must open an adapter-review issue no later than 21 days before the earliest `expires_at` value in `references/adapters/*.json`. The current manifests expire on 2026-11-24, so their review issue is due by 2026-11-03.
+
+For every adapter in that review:
+
+1. Verify the adapter ID, schema version, supported controls, account or tier assumptions, parameter behavior, and failure behavior against current first-party documentation and trusted runtime capability evidence. Do not treat the existing manifest as proof of current support.
+2. Update `adapter_version` using Semantic Versioning, set `reviewed_at` to the completed review date, and set `expires_at` no more than 120 days later. Update `capability_contract`, `supported_controls`, and `first_party_sources` together when the reviewed capabilities changed.
+3. Recompute `capability_fingerprint` from the canonical JSON form of `capability_contract` described in [references/platform-adapters.md](references/platform-adapters.md). Run the validator to confirm that the fingerprint and duplicated supported controls match.
+4. Because adapter manifests are protected artifacts, run `python3 scripts/artifact_manifest.py --write`, discard the previous forward-test observations, rerun all cases using [tests/forward-test-protocol.md](tests/forward-test-protocol.md), and regenerate the report with `python3 scripts/forward_report.py --write`.
+5. Run `python3 scripts/validate.py` and `python3 -m unittest discover -s tests -p "test_*.py"`, then complete the normal reviewed release process below.
+
+Never extend an expiry date merely to keep CI green. If review is incomplete when an adapter expires, leave validation failing and keep the integration `recommend_only` until a reviewed, evidence-bound renewal is merged. For the current manifests, `python3 scripts/validate.py --date 2026-11-25` demonstrates the intended fail-closed result; after renewal, repeat that boundary test for the day after the new earliest expiry.
+
 ## Release procedure
 
 1. Run the local validator and test suite described in [CONTRIBUTING.md](CONTRIBUTING.md).
